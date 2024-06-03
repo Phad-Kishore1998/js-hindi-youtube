@@ -39,3 +39,28 @@ const myFunction = function() {
 
 //Non primitive types are Object mostly : Function is specially function object.
 
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//Stack (Primitive) (We get a copy) and Heap (Non Primitive) (We get a reference)
+
+let myYoutubeName = "KishorePhad"
+let anotherName = myYoutubeName
+
+anotherName = "Kishore"
+console.log(myYoutubeName); //value is different
+console.log(anotherName);
+
+
+let userOne = {
+    name : "Kishore",
+    email : "Kishore@google.com",
+
+}
+
+let userTwo = userOne;
+userTwo.email = "Kishore@yahoo.com"
+
+console.log(userOne.email); //value is changed
+console.log(userTwo.email); 
+
