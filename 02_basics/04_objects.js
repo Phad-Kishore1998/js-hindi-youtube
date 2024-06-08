@@ -55,3 +55,16 @@ console.log(myObj);
 myfinaObj = {...obj1, ...obj2}
 console.log(myfinaObj);
 //{ '1': 'a', '2': 'b', '3': 'c', '4': 'd' }
+
+console.log(Object.keys(myfinaObj));
+//keys as a array : [ '1', '2', '3', '4' ]
+console.log(Object.values(myfinaObj));
+//[ 'a', 'b', 'c', 'd' ] values as array
+console.log(Object.entries(myfinaObj));
+//[ [ '1', 'a' ], [ '2', 'b' ], [ '3', 'c' ], [ '4', 'd' ] ]
+
+//checking if object is having a properties
+console.log(tinderUser.hasOwnProperty('isLoggedIn'));
+//true
+
+
