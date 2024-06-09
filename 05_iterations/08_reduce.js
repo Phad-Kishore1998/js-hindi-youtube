@@ -8,10 +8,16 @@ const myTotal2 = myNums.reduce(function (acc, currval) {
     return acc + currval
 }, 0)
 console.log(myTotal2);
+/*
+acc: 0 and currval: 1
+acc: 1 and currval: 2
+acc: 3 and currval: 3
+6
+*/
+
 
 const myTotal = myNums.reduce( (acc, curr) => acc+curr, 0)
-
-console.log(myTotal);
+console.log(myTotal); //6
 
 
 const shoppingCart = [
@@ -36,3 +42,4 @@ const shoppingCart = [
 const priceToPay = shoppingCart.reduce((acc, item) => acc + item.price, 0)
 
 console.log(priceToPay);
+//22996
