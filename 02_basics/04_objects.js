@@ -68,3 +68,23 @@ console.log(tinderUser.hasOwnProperty('isLoggedIn'));
 //true
 
 
+//Destructing 
+const course = {
+    name: "chai with code",
+    courseInstructor: "Hitesh",
+    mode: "youtube"
+}
+
+console.log(course.courseInstructor);
+//here we are using course.courseInstructor again and again if there would be
+//many course objects for that we de structure the value of objects
+
+const {courseInstructor} = course
+console.log(courseInstructor);
+//now courseInstructor will have the value of course Instructor from course object
+
+//if we want some other name
+const {courseInstructor : instructor} = course
+console.log(instructor);
+
+//all the above three console gave o/p: hitesh
