@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM learning</title>
+    <style>
+      .bg-black{
+        background-color: black;
+        color: #fff
+      }
+    </style>
+</head>
+<body  class="bg-black">
+    <div id= 'title'>
+        <h1 class="heading"> DOM learning on Chai aur code </h1>
+        <p>Lorem ipsum dolor sit.</p>
+    </div>
+</body>
+</html>
+
+/*
+document.getElementById()
+//also need to give element in the () 
+document.getElementById('title').id  //id is given
+
+document.getElementById('title').class //undefined
+document.getElementById('title').className //class of the element
+
+//we can get the attribute of the element
+document.getElementById('title').getAttribute('id')
+//we have pass the key on the getAttribute and then we get the result
+
+//overwritting of the class value
+document.getElementById('title').setAttribute('class', 'test heading')
+
+//Adding Style to title element identified above
+title.style.backgroundColor = 'green'
+title.style.padding = "15px"
+title.style.borderRadius = "10px"
+
+
+//+++++++++++++++++++++++++++++++Interesting+++++++++++++++++++++++++
+//Add Content 
+
+title.textContent //show same output as innerText
+title.innerText  //show same o/p as textContent
+
+When we add <span style="display: none;"> Hidden using CSS </span>
+
+In textContent:=> Nothing is hidden. (Sari value)
+In innerText :=> Text is hidden (jo dikh rha hai wahi lena)
+
+title.innerHTML // (it shows html as well between the element)
+
+document.getElementsByClassName('heading')
+//HTML Collection
+
+document.querySelector('h1') //tag
+//give the first instance of h1
+
+document.querySelector('#title') //#title id
+
+document.querySelector('.heading') //class
+
+document.querySelector('input[password]')
+    //<input type="password" name="" id="">
+
+
+    //selecting ul => 1st li in the code 
+    <ul>
+        <li> one </li>
+        <li> two</li>
+        <li>three </li>
+      </ul>
+
+    myul = document.querySelector('ul')
+    myul.querySelector(li)
+    myul.querySelector('li').style.color = 'green'
+
+
+document.querySelectorAll()
+
+tempList = document.querySelectorAll('ul')
+      //it gives NodeList(3)
+    
+NodeList is not a array in JS : as Array have a map kind of function
+but NodeList does not have it do have a forEach 
+
+tempList.style.color = 'green'
+
+tempList[0].style.color = 'green' //(array type work)
+
+const myH1 = document.querySelectorAll('h1')
+myH1.style.color = 'green' // We will get error as currently there is only 1 h1 
+So to use that 1st one.
+myH1[0].style.color = 'green'
+
+tempList.forEach(function (li) {
+    li.style.backgroundColor = 'green'
+})
+//callback
+//NodeList to Array for map function
+
+HTMLCollection : no forEach nothing only a object
+
+const tempClassList = document.getElementsByClassName('list-item')
+Array.from(tempClassList) //it will convert to array
+
+
+
+
+
+
+/*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM learning</title>
+    <style>
+      .bg-black{
+        background-color: black;
+        color: #fff
+      }
+    </style>
+</head>
+<body  class="bg-black">
+    <div>
+        <h1 style="color: blue;" id='title' class="heading"> DOM learning on Chai aur code 
+          <span> Hiding Trick at peak </span>
+        </h1>
+        <p>Lorem ipsum dolor sit.</p>
+        <input type="password"  name="" id="">
+        <ul>
+          <li class="list-item"> one </li>
+          <li class="list-item"> two</li>
+          <li class="list-item">three </li>
+          <li class="list-item"> four </li>
+        </ul>
+    </div>
+</body>
+</html>
+
+*/
+
+
+
+
+
+*/
