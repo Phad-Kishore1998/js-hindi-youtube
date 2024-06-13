@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai Aur Code</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script>
+    const div = document.createElement('div') //div element it has <div></div>
+    div.className = "main"      //it should be className and not only class
+    div.id = Math.round(Math.random() * 10 + 1)     //random id generation
+
+    //it directly set the value to the attribute
+    //saves round trip of getting the value for attribute from the html in . operation below
+    div.setAttribute("title", "generated title")
+    
+    //div. style or innerHTML by standard is not recommended as it overwrites the value
+    div.style.background = "green"
+    div.style.padding = "12px"
+    div.innerHTML = "Chai Aur Code"
+
+    //currently div is in memory 
+    //we need to add on the webPage we Do AppendChild
+    const addText = document.createTextNode("Chai aur code");
+    div.appendChild(addText);
+    document.body.appendChild(div);
+
+</script>
+</html>
