@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai Aur Code</title>
+</head>
+<body style="background-color: #212121; color:azure">
+    <ul class = "language" style="color: aqua;">
+        <li>Javascript </li>
+    </ul>
+    
+</body>
+<script>
+     /*
+        Design a function to add a li as language
+    */
+    function addLanguage(langName) {
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').
+        appendChild(li)
+
+        //appendChild not good for large scale application as appendChild traverse entire tree.
+    }
+    addLanguage("Python")
+    addLanguage("TypeScript")
+
+    //optimized Functions
+    function addOptiLanguage(langName) {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("GoLang")
+
+    //Edit
+    const secondlang = document.querySelector("li:nth-child(2)")
+    //secondlang.innerHTML = "Mojo"       //non optimize
+    
+    //optimized:
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"
+    secondlang.replaceWith(newli);
+
+    //edit using innerHTML
+    const firstChild = document.querySelector("li:nth-child(1)")
+    firstChild.innerHTML = "<li>TypeScript</li>"
+    
+    //remove last child
+    const lastEle = document.querySelector("li:last-child")
+   // lastEle.remove()
+
+</script>
+</html>
