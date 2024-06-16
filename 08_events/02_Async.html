@@ -1,0 +1,41 @@
+/*
+JavaScript  : 
+              Synchronous : one by one execution
+              Single Threda : JS Engine is slower and single threaded but 
+                            never lets you feel the slow ness as they are coupled with
+                            Node or browser Run Time.
+Execution Context
+    :=> Execute one line of code at a time 
+    console.log() -> 1
+    console.log() -> 2 
+
+    CallStack  MemoryHeap
+
+    //each operaion waits for the last one to complete before executing
+
+
+            
+Blocking Code(Does block execution) Vs Non Blocking Code (Does not block execution)
+eg. Read File Sync                      eg. Read File Async
+
+File reading goes to kernel and then again control comes to program.
+But Kernel is very busy and says wait until i am free.
+
+
+JS Engine has MemoryHeap and Call CallStack
+but JS Engine have with Node and Browser Run time Environment
+
+Call Stack calls from Web API (Browser) : 
+                DOM API, Set Timeout, Set Interval : Register Call back :They have Task Queue
+                and  Fetch(Promise) : High Priority Queue
+
+Event Loop is for TaskQueoue (is why the JS is fast).
+
+Program is loaded in Memory and then call stack is prepared.
+Then one by one function load hote hai... and unload hote hai khtm hone pe.
+
+eg. 1, [0sec,2], 3
+o/p is 1-> 3-> 2 this the Queue.
+
+
+*/

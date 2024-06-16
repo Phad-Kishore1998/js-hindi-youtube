@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Chair and Code </h1>
+    <button id="stop"> Stop</button>
+</body>
+<script>
+    //setTimeout and setInterval are also available for window in console.
+
+    //setTimeout is a Handler (Function without name :handler, time) 
+    const sayKishore = setTimeout(function(){
+        console.log("Kishore");
+    }, 2000);
+    //Printing Kishore after 2 second timeout
+
+    // setInterval(function(){
+    //     console.log("Kishore Phad");
+    // }, 2000)
+    
+     // document.querySelector('h1').innerHTML = "Best JS Series Studying"
+    // setTimeout(sayKishore, 2000);
+
+    const changeText = function() {
+        document.querySelector('h1').innerHTML = "Best JS Series"
+    }
+    //now want to change Text of the Function after 2 second
+    //setTimeout(changeText, 5000);
+
+    //clearTimeout to avoid the setTimeout which you want to remove from the page 
+    //after clicking on the Stop Button
+    // we will require a refernce of the setTimeout we not to remove
+    const changeMe = setTimeout(changeText, 5000);
+    //clearTimeout(changeMe)
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeMe)
+        console.log("Stopped the Pop Up");
+    })
+
+</script>
+</html>

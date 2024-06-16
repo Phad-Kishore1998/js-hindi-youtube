@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" 
+                alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" 
+                alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" 
+                alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" 
+                alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" 
+                alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    //JS is a sequenece programming language.
+    //Events are activities on browser
+    /*
+        document.getElementById('owl').onclick = function(){
+            alert("owl clicked")
+        }
+    */
+
+    /*
+    //problem in this approach is eventListeners are better as they give propagation as well
+    //instead of only onclick functionality. and onclick has lesser features.
+
+    //third parameter : default its not mentioned but its required for some Functions
+    //document.getElementById('owl').addEventListener('click', function(){}, false)
+
+    document.getElementById('owl').addEventListener('click', function(){
+        alert('owl clicked using best Approach')
+    })
+    */
+    
+    /*
+    //Event Object
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log(e);
+        //PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
+        //Imp is : tyep, sourceElement, timeStamp, View, Prototype
+    }, false)
+
+    //+++++++++++++++++++++++++++++++++++++//Imp is : tyep, sourceElement, timeStamp, View, Prototype
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    */
+
+    //+++++++++++++++++++++++++ Event Propogation ++++++++++++++++++++++++++++++++++++++
+    //event public(false) and event private(true) : its for capturing
+
+    /*
+    //ul 
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log("Clicked inside the ul");
+    }, false)
+    //li
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log("Clicked inside the li");
+    }, false)
+
+    //o/p: =    Clicked inside the li ===  and then === Clicked inside the ul
+    //from inside to outside : is called event propagation
+    */
+
+    /*
+    //ul 
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log("Clicked inside the ul");
+    }, true)
+    //li
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log("Clicked inside the li");
+    }, true)
+
+    //o/p: =    Clicked inside the ul === and then Clicked inside the li
+    //capturing 
+    */
+
+    //Stop propogation and No bubbling
+     //ul 
+     document.getElementById('images').addEventListener('click', function(e){
+        console.log("Clicked inside the ul");
+    }, false)
+    //li
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log("Clicked inside the li");
+        e.stopPropagation()
+    }, false)
+
+    //o/p: =    Clicked inside the li
+
+    //prevent default : false
+    document.getElementById('google').addEventListener
+    ('click', function(e){
+        e.preventDefault();
+        console.log('google clicked');
+        e.stopPropagation()
+    },false)
+
+    //o/p:= google clicked and then ======== Clicked inside the ul
+    //to not have cliced inside the ul and stop propogation uncomment the propogation
+    //only you get the o/p : google clicked
+
+    //hidding and showing the alias of the image
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e); //o.p: pointerEvent in console
+        //target ka parent Node
+        console.log(e.target); //o/p gives the <image> tag which we have clicked
+        console.log(e.target.parentNode); //o/p gives the <li> (parent) tag with image tag in it.
+        
+        //removing the element from HTML
+        let removeIt = e.target.parentNode
+        removeIt.remove()
+        
+        //other way to remove the element is 
+        //removeIt.parentNode.removeChild(removeIt)
+
+        /*
+        //*************IMP : if you click on google link it will remove the images from HTML
+        //************* why because we are removing parent of li which is ul
+        //************* So, it will remove everything to that we should use
+
+        //Check
+        if(e.target.tagName === 'IMG') {
+            console.log(e.target.id); 
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+        */
+    })
+
+</script>
+</html>
