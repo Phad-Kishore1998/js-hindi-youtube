@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Requests</title>
+    
+</head>
+<body style="background-color: black;">
+    <p>
+        <!--
+         /*
+        The XMLHttpRequest.readyState property returns the state an XMLHttpRequest client is in. An XHR client exists in one of the following states:
+        <br>
+        Value	State	Description<br>
+        0	UNSENT	Client has been created. open() not called yet. <br>
+        1	OPENED	open() has been called. <br>
+        2	HEADERS_RECEIVED	send() has been called, and headers and status are available. <br>
+        3	LOADING	Downloading; responseText holds partial data.<br>
+        4	DONE	The operation is complete. <br>
+    
+        */
+        -->
+       
+    </p>
+    <button id="Github"> Bring Github Profile</button>
+</body>
+<script>
+
+    let profileName 
+    let avatarUrl
+    document.getElementById('Github').addEventListener('click', getGitHubProfile);
+
+    function getGitHubProfile() {
+
+        const requestURL = "https://api.github.com/users/Phad-Kishore1998"
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET',requestURL); //sending request
+        //open is not called by itself
+        //console.log("Here"); //something is there in console
+        
+        //console.log(xhr.readyState); //o/p: 1  
+
+        //to track the xhr for any changes
+        //async functions
+        xhr.onreadystatechange = function() {
+            console.log(xhr.readyState);
+            //once we are reached to state 4 we get a respone so we print it
+            if(xhr.readyState === 4){
+                /*
+                //console.log(this.responseText); //this is required here for current context
+                //to find the followers results
+                const data= this.responseText;
+                console.log(data); //we getting the Data on the console o/p
+                console.log(data.followers);    //We are getting undefined as the result from the API
+                //is in String
+                console.log(typeof data);   //string
+                */
+                //converting data string to Object
+                const data = JSON.parse(this.responseText)
+                console.log(typeof data); //object
+                console.log(data.followers); //3
+                avatarUrl = data.avatar_url;
+                profileName = data.login;
+                (() => {
+                    //console.log("hi");
+                    const nameDiv = document.createElement('div');
+                    nameDiv.style.background = "green"
+                    nameDiv.style.padding = "12px"
+                    nameDiv.setAttribute("title", "generated title")
+
+                    const addText = document.createTextNode(`Profile Name is: ${profileName}`);
+                    nameDiv.appendChild(addText);
+                    document.body.appendChild(nameDiv);
+                })();
+                
+            }
+            //o/p:- 
+            /*
+                2
+                3
+                4
+                { "login": "Phad-Kishore1998",
+                "id": 45930935,
+                "node_id": "MDQ6VXNlcjQ1OTMwOTM1", ... }
+            */
+        }
+        xhr.send();
+        // console.log("hi");
+        // printDetails(profileName, avatarUrl);
+    }
+
+   
+</script>
+</html>
