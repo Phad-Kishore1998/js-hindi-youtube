@@ -260,4 +260,20 @@ fetch('https://example.com/', {
   body: new FormData(),
 });
 
+/**************************************************************Fetch Working*********************************************/
+/*
+response = fetch('something')
+(2nd this part runs) 1st Part goes to WebBrowser/Node to handle network request 
+(1st this part runs) 2nd Part goes to Data (Memory Reservation) for Onfulfilled[] OnRejection[]
+
+404 is also gone to Onfulfilled[]. as network call is complete.
+after the network calls completed and data is stored in Onfulfilled[] or OnRejection[] arrays depending on the
+success or failure of network calls then one of the array is filled in response.
+
+Global memory: response 
+
+
+
+*/
+
 */
